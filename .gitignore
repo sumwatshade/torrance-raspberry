@@ -1,5 +1,11 @@
 
+config/surfline.config.js
+
 node_modules/
 
 yarn-error.log
 .DS_Store
+
+errorShots/
+
+snapshot.png
