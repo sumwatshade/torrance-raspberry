@@ -26,7 +26,8 @@
     "build": "nvm && cd app && next build",
     "start": "nvm && npm run build && env NODE_ENV=production node app.js",
     "dev": "nvm && nodemon --ignore app/ app.js",
-    "scrapeSurfline": "$(npm bin)/wdio config/wdio.conf.js"
+    "scrapeSurfline": "$(npm bin)/wdio config/wdio.conf.js",
+    "lint": "$(npm bin)/eslint --fix --ignore-path .gitignore ."
   },
   "eslintConfig": {
     "extends": "airbnb",
