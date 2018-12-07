@@ -30,7 +30,7 @@ describe('Sign in', function() {
     console.log(browser.getTitle())
 
     // Save screenshot to file
-    browser.saveDocumentScreenshot('./snapshot.png');
+    browser.saveDocumentScreenshot(`./snapshots/snapshot-cardiff-${new Date().getTime()}.png`);
 
     // Get HTML
     //http://webdriver.io/api/property/getHTML.html
