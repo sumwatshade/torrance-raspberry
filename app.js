@@ -39,7 +39,7 @@ const start = async (port) => {
         const options = {
             urls: [scrapeUrl],
             directory: `tmp/${folderName}`,
-        }
+        };
 
         console.log(options);
 
@@ -49,10 +49,9 @@ const start = async (port) => {
                 if (err) {
                     console.log(err);
                     return res.status(500).send('zip file failed');
-                } else {
-                    return res.download(zipFile);
                 }
-            })
+                return res.download(zipFile);
+            });
         }).catch((err) => {
             console.log(err);
             return res.status(500).send('zip file failed');

@@ -14,11 +14,13 @@ class Index extends React.Component {
         this.doSubmitUrl = this.doSubmitUrl.bind(this);
         this.handleChangeUrl = this.handleChangeUrl.bind(this);
     }
+
     handleChangeUrl(e) {
         this.setState({ url: e.target.value });
     }
+
     doSubmitUrl() {
-        const data = { url: this.state.url }
+        const data = { url: this.state.url };
         const url = '/scrape_url';
         fetch(url, {
             method: 'POST',
@@ -27,16 +29,17 @@ class Index extends React.Component {
                 'Content-Type': 'application/json'
             }),
         })
-        .then((response) => response.blob())
-        .then((blob) => {
-            const link=document.createElement('a');
-            link.href=window.URL.createObjectURL(blob);
-            link.text=`${this.state.url}.zip`;
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.appendChild(link);
-        })
-        .catch(error => console.error('Error:', error));
+            .then((response) => response.blob())
+            .then((blob) => {
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.text = `${this.state.url}.zip`;
+                const downloadLink = document.getElementById('downloadLink');
+                downloadLink.appendChild(link);
+            })
+            .catch(error => console.error('Error:', error));
     }
+
     render() {
         return (
             <Theme>
@@ -55,23 +58,23 @@ class Index extends React.Component {
                     </a>
                 </span>
                 <br />
-                <form action='#'>
-                <div className='field'>
-                    <input placeholder='Sample: https://google.com/' value={this.state.url} onChange={this.handleChangeUrl}></input>
-                    <label>Input URL</label>
-                </div>
-                <div className='field form-actions'>
-                    <button type='submit' onClick={this.doSubmitUrl}>Submit</button>
-                </div>
+                <form action="#">
+                    <div className="field">
+                        <input placeholder="Sample: https://google.com/" value={this.state.url} onChange={this.handleChangeUrl} />
+                        <label>Input URL</label>
+                    </div>
+                    <div className="field form-actions">
+                        <button type="submit" onClick={this.doSubmitUrl}>Submit</button>
+                    </div>
                 </form>
-                <div id="downloadLink">
-                </div>
-                <style jsx>{`
+                <div id="downloadLink" />
+                <style jsx>
+                    {`
                     .btn {
                         display: flex;
                         justify-content: center;
                     }`
-                }
+                    }
                 </style>
             </Theme>
         );
