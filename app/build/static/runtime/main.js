@@ -12431,21 +12431,21 @@ function ScriptLine(lineNumber, content) {
                                         const functionName = frame.functionName;
 
 
-                                        let fileName = frame.fileName;
+                                        const fileName = frame.fileName;
 
 
-                                        let lineNumber = frame.lineNumber;
+                                        const lineNumber = frame.lineNumber;
 
 
-                                        let columnNumber = frame.columnNumber;
+                                        const columnNumber = frame.columnNumber;
 
                                         const _ref3 = cache[fileName] || {};
 
 
-                                        let map = _ref3.map;
+                                        const map = _ref3.map;
 
 
-                                        let fileSource = _ref3.fileSource;
+                                        const fileSource = _ref3.fileSource;
 
                                         if (map == null || lineNumber == null) {
                                             return frame;
@@ -12454,13 +12454,13 @@ function ScriptLine(lineNumber, content) {
                                         const _map$getOriginalPosit = map.getOriginalPosition(lineNumber, columnNumber);
 
 
-                                        let source = _map$getOriginalPosit.source;
+                                        const source = _map$getOriginalPosit.source;
 
 
-                                        let line = _map$getOriginalPosit.line;
+                                        const line = _map$getOriginalPosit.line;
 
 
-                                        let column = _map$getOriginalPosit.column;
+                                        const column = _map$getOriginalPosit.column;
 
                                         const originalSource = source == null ? [] : map.getSource(source);
                                         return new __WEBPACK_IMPORTED_MODULE_1__stack_frame__.b(functionName, fileName, lineNumber, columnNumber, Object(__WEBPACK_IMPORTED_MODULE_3__getLinesAround__.a)(lineNumber, contextLines, fileSource), functionName, source, line, column, Object(__WEBPACK_IMPORTED_MODULE_3__getLinesAround__.a)(line, contextLines, originalSource));
@@ -14504,8 +14504,8 @@ function ScriptLine(lineNumber, content) {
                     //
                     //   3. We did not find the exact element, and there is no next-closest
                     //      element than the one we are searching for, so we return -1.
-                    var mid = Math.floor((aHigh - aLow) / 2) + aLow;
-                    var cmp = aCompare(aNeedle, aHaystack[mid], true);
+                    const mid = Math.floor((aHigh - aLow) / 2) + aLow;
+                    const cmp = aCompare(aNeedle, aHaystack[mid], true);
                     if (cmp === 0) {
                         // Found the element we are looking for.
                         return mid;
@@ -14520,23 +14520,20 @@ function ScriptLine(lineNumber, content) {
                         // we are in termination case (3) or (2) and return the appropriate thing.
                         if (aBias == exports.LEAST_UPPER_BOUND) {
                             return aHigh < aHaystack.length ? aHigh : -1;
-                        } 
-                            return mid;
-                        
-                    } 
-                        // Our needle is less than aHaystack[mid].
-                        if (mid - aLow > 1) {
-                            // The element is in the lower half.
-                            return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare, aBias);
                         }
+                        return mid;
+                    }
+                    // Our needle is less than aHaystack[mid].
+                    if (mid - aLow > 1) {
+                        // The element is in the lower half.
+                        return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare, aBias);
+                    }
 
-                        // we are in termination case (3) or (2) and return the appropriate thing.
-                        if (aBias == exports.LEAST_UPPER_BOUND) {
-                            return mid;
-                        } 
-                            return aLow < 0 ? -1 : aLow;
-                        
-                    
+                    // we are in termination case (3) or (2) and return the appropriate thing.
+                    if (aBias == exports.LEAST_UPPER_BOUND) {
+                        return mid;
+                    }
+                    return aLow < 0 ? -1 : aLow;
                 }
 
                 /**
@@ -15173,13 +15170,13 @@ function ScriptLine(lineNumber, content) {
                                         const functionName = frame.functionName;
 
 
-                                        let lineNumber = frame.lineNumber;
+                                        const lineNumber = frame.lineNumber;
 
 
-                                        let columnNumber = frame.columnNumber;
+                                        const columnNumber = frame.columnNumber;
 
 
-                                        let _originalLineNumber = frame._originalLineNumber;
+                                        const _originalLineNumber = frame._originalLineNumber;
 
                                         if (_originalLineNumber != null) {
                                             return frame;
@@ -15201,7 +15198,7 @@ function ScriptLine(lineNumber, content) {
                                         // Prepare path for normalization; see comment above for reasoning.
                                             .map((s) => s.replace(/[\\]+/g, '/')).filter((p) => {
                                                 p = __WEBPACK_IMPORTED_MODULE_4_path___default.a.normalize(p);
-                                                let i = p.lastIndexOf(fN);
+                                                const i = p.lastIndexOf(fN);
                                                 return i !== -1 && i === p.length - fN.length;
                                             }).map((p) => ({
                                                 token: p,
@@ -15209,7 +15206,7 @@ function ScriptLine(lineNumber, content) {
                                                 penalties: count('node_modules', p) + count('~', p)
                                             }))
                                             .sort((a, b) => {
-                                                let s = Math.sign(a.seps - b.seps);
+                                                const s = Math.sign(a.seps - b.seps);
                                                 if (s !== 0) {
                                                     return s;
                                                 }
@@ -15225,10 +15222,10 @@ function ScriptLine(lineNumber, content) {
                                             columnNumber);
 
 
-                                        let line = _map$getGeneratedPosi.line;
+                                        const line = _map$getGeneratedPosi.line;
 
 
-                                        let column = _map$getGeneratedPosi.column;
+                                        const column = _map$getGeneratedPosi.column;
 
                                         const originalSource = map.getSource(sourceT);
                                         return new __WEBPACK_IMPORTED_MODULE_1__stack_frame__.b(functionName, fileUri, line, column || null, Object(__WEBPACK_IMPORTED_MODULE_3__getLinesAround__.a)(line, contextLines, fileContents || []), functionName, fN, lineNumber, columnNumber, Object(__WEBPACK_IMPORTED_MODULE_3__getLinesAround__.a)(lineNumber, contextLines, originalSource));
