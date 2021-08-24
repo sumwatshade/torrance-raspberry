@@ -84,7 +84,7 @@
     "normalize.css": "^8.0.1",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^3.0.0",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.7.2",
     "raw-loader": "^0.5.1",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
