@@ -89,7 +89,7 @@
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^8.0.1",
     "webdriverio": "^5.0.0",
     "website-scraper": "^3.4.0"
   },
